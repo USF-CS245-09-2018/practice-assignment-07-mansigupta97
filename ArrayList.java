@@ -6,9 +6,8 @@ public class ArrayList implements List {
 	public void growArray() {
 		int new_size = array.length * 2;
 		Object [] newArray = new Object[new_size];
-		int count = 0;
 		for(int i = 0; i < array.length; i++) {
-			newArray[count] = array[i];
+			newArray[i] = array[i];
 		}
 		array = newArray;
 	}
@@ -27,8 +26,8 @@ public class ArrayList implements List {
 		}
 		for(int i = size; i > position; i--) {
 			array[i] = array[i - 1];
-			array[i] = position;
 		}
+		array[position] = object;
 		size++;
 	}
 
@@ -41,10 +40,7 @@ public class ArrayList implements List {
 		if(size == 0) {
 			return removeItem;
 		}
-		System.out.println("------REMOVE------");
-		System.out.println("position: " +  position + ", size: " + size);
 		for(int i = position + 1; i < size; i++) {
-			//System.out.println(size);
 			array[i - 1] = array[i];
 		}
 		size--;
